@@ -1,8 +1,8 @@
-.. image:: https://travis-ci.org/fair-research/minid.svg?branch=master
-    :target: https://travis-ci.org/fair-research/minid
+.. image:: https://travis-ci.org/NickolausDS/minid.svg?branch=master
+    :target: https://travis-ci.org/NickolausDS/minid
 
-.. image:: https://coveralls.io/repos/github/fair-research/minid/badge.svg?branch=master
-    :target: https://coveralls.io/github/fair-research/minid?branch=master
+.. image:: https://coveralls.io/repos/github/NickolausDS/minid/badge.svg?branch=master
+    :target: https://coveralls.io/github/NickolausDS/minid?branch=master
 
 .. image:: https://img.shields.io/pypi/v/minid.svg
     :target: https://pypi.python.org/pypi/minid
