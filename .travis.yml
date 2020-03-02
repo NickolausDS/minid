@@ -1,5 +1,7 @@
-sudo: false
 language: python
+os:
+  - "linux"
+  - "macOS"
 python:
   - "3.6"
   - "3.7"
