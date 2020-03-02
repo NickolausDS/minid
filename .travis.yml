@@ -11,5 +11,5 @@ install:
   - pip install python-coveralls coverage
 script:
   - flake8 minid tests examples
-  - pytest --cov=fair_research_login --cov-report=term tests/
+  - pytest --cov=minid --cov-report=term tests/
 after_success: coveralls
