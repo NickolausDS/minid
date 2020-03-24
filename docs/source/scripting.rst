@@ -15,3 +15,7 @@ the in-code docs.
 .. code-block:: bash
 
    help(minid_client)
+
+
+.. toctree::
+   client/minid

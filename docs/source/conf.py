@@ -17,13 +17,13 @@
 
 # -- Project information -----------------------------------------------------
 
-from os.path import dirname, join, abspath
+from os.path import dirname
 import sys
 
 BASE_DIR = dirname(dirname(dirname(__file__)))
-sys.path.insert(0, join(BASE_DIR, 'minid'))
+sys.path.insert(0, BASE_DIR)
 
-from version import __VERSION__ as version
+from minid.version import __VERSION__ as version
 
 project = 'Minid'
 copyright = "Apache 2.0"
@@ -42,6 +42,7 @@ master_doc = 'index'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.autodoc'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
