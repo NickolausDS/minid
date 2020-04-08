@@ -159,7 +159,7 @@ class MinidClient(object):
         return isinstance(entity, str) and entity.startswith(self.MINID_PREFIX)
 
     def register_file(self, filename, title='', locations=None, test=False,
-                      replaces=None):
+                      metadata=None, replaces=None):
         """
         Register a file and produce an identifier. The file is automatically
         checksummed using sha256, and the checksum is sent to the identifiers
@@ -258,6 +258,8 @@ class MinidClient(object):
         supported_ck = [c for c in checksums
                         if c['function'] in SUPPORTED_CHECKSUMS]
         metadata = metadata or {}
+        metadata['created_by'] = metadata.get('created_by',
+                                              self.get_cached_created_by())
         metadata['title'] = title
         namespace = (self.IDENTIFIERS_NAMESPACE_TEST if test is True
                      else self.IDENTIFIERS_NAMESPACE)

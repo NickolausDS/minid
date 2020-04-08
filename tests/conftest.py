@@ -16,7 +16,8 @@ from minid.commands import main  # noqa -- ensures commands are loaded
 
 
 @pytest.fixture
-def logged_in(monkeypatch):
+def logged_in_no_user(monkeypatch):
+    """Log the user in, but don't overwrite the user"""
     load_mock = Mock()
     load_mock.return_value = {'auth.globus.org': 'mock_auth_tokens'}
     monkeypatch.setattr(MinidClient, 'is_logged_in', Mock(return_value=True))
@@ -25,6 +26,12 @@ def logged_in(monkeypatch):
     monkeypatch.setattr(fair_research_login.NativeClient, 'get_authorizers',
                         load_mock)
     return load_mock
+
+@pytest.fixture
+def logged_in(monkeypatch, logged_in_no_user):
+    monkeypatch.setattr(MinidClient, 'get_cached_created_by',
+                        lambda x: 'Test User')
+    return logged_in_no_user
 
 
 @pytest.fixture

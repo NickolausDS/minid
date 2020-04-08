@@ -58,7 +58,8 @@ def test_register_unsupported_checksum(mock_identifiers_client, logged_in):
     expected = {
         'checksums': [{'function': 'sha256', 'value': 'mock_checksum'}],
         'metadata': {
-            'title': 'foo.txt'
+            'title': 'foo.txt',
+            'created_by': 'Test User',
         },
         'location': [],
         'namespace': MinidClient.IDENTIFIERS_NAMESPACE,
@@ -182,13 +183,15 @@ def test_compute_checksum():
     assert checksum == TEST_CHECKSUM_VALUE
 
 
-def test_get_cached_created_by(mock_globus_sdk_auth, logged_in):
+def test_get_cached_created_by(mock_globus_sdk_auth,
+                               logged_in_no_user):
     mc = MinidClient()
     mc.get_cached_created_by()
     assert mock_globus_sdk_auth.called
 
 
-def test_get_cached_created_by_is_cached(mock_globus_sdk_auth, logged_in):
+def test_get_cached_created_by_is_cached(mock_globus_sdk_auth,
+                                         logged_in_no_user):
     mc = MinidClient()
     mc.get_cached_created_by()
     mc.get_cached_created_by()
